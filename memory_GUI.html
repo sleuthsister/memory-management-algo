@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Allocation Simulation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <style>
+    .memory-container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin: 20px auto;
+      border: 1px solid #666;
+    }
+    
+    .memory-block {
+      position: relative;
+      background-color: #333;
+      color: white;
+      text-align: left;
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #555;
+    }
+    
+    .process-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #003b79;
+      color: white;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    
+    .fragmentation-info {
+      margin-top: 20px;
+      text-align: center;
+    }
+    </style>    
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="container mx-auto p-8">
+    <h1 class="text-3xl mb-6">Memory Allocation Simulation</h1>
+
+    <!-- Input for number of processes -->
+    <div class="mb-4">
+      <label class="block">Number of Processes:</label>
+      <input id="num-processes" type="number" class="p-2 bg-gray-800 border border-gray-700 rounded w-full" />
+    </div>
+
+    <div class="mb-4">
+      <label class="block">Number of Blocks:</label>
+      <input id="num-blocks" type="number" class="p-2 bg-gray-800 border border-gray-700 rounded w-full" />
+    </div>
+
+    <button onclick="initialize()" class="bg-blue-500 p-2 rounded">Initialize</button>
+
+    <div id="input-fields" class="my-6"></div>
+
+    <label class="block">Select Algorithm:</label>
+    <select id="algorithm" class="p-2 bg-gray-800 border border-gray-700 rounded w-full">
+      <option value="firstFit">First Fit</option>
+      <option value="nextFit">Next Fit</option>
+      <option value="bestFit">Best Fit</option>
+      <option value="worstFit">Worst Fit</option>
+    </select>
+
+    <button onclick="runSimulation()" class="bg-green-500 p-2 mt-4 rounded">Run Simulation</button>
+
+    <div id="output" class="mt-6"></div>
+  </div>
+
+  <script src="memory_allocation.js"></script>
+</body>
+</html>
